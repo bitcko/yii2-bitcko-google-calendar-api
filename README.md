@@ -123,8 +123,6 @@ class GoogleApiController extends Controller
         $username="any_name";
         $googleApi = new GoogleCalendarApi($username,$calendarId);
         if($googleApi->checkIfCredentialFileExists()){
-
-
           $calendars =    $googleApi->calendarList();
             \Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
             \Yii::$app->response->data = $calendars;
