@@ -44,7 +44,7 @@ use bitcko\googlecalendar\GoogleCalendarApi;
 /**
  * GoogleApi controller.
  *
- * @package backend\controllers
+ * @package app\controllers
  * @author  Mhmd Backer shehadi (bitcko) <www.bitcko.com>
 
  */
