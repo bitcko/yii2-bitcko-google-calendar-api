@@ -1,0 +1,23 @@
+{
+    "name": "bitcko/yii2-bitcko-google-calendar-api",
+    "description": "Bitcko Yii2 Google Calendar Api Extension use to create and delete events from google calendar",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","google","api","google calendar api","google api","calendar"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Mhmd Backer Shehadi",
+            "email": "mhmd.backer.shehadi@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0",
+        "google/apiclient":"^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "bitcko\\googlecalendar\\": ""
+        }
+    }
+}
+
