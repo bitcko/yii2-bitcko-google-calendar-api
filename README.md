@@ -17,7 +17,7 @@ php composer.phar require bitcko/yii2-bitcko-google-calendar-api:dev-master
 or add
 
 ```
-"bitcko/bitcko/yii2-bitcko-google-calendar-api": "*"
+"bitcko/bitcko/yii2-bitcko-google-calendar-api": "dev-master"
 ```
 
 to the require section of your `composer.json` file.
