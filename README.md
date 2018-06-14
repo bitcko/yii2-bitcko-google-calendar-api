@@ -109,7 +109,7 @@ class GoogleApiController extends Controller
         $username="any_name";
         $googleApi = new GoogleCalendarApi($username,$calendarId);
         if($googleApi->checkIfCredentialFileExists()){
-            $eventId ='ugj7cmp7b49v99u13tdfc6n0v4' ;
+            $eventId ='event_id' ;
 
              $googleApi->deleteGoogleCalendarEvent($eventId);
             \Yii::$app->response->data = "Event deleted";
@@ -134,7 +134,6 @@ class GoogleApiController extends Controller
     }
 
 }
-
 
 
 ```
