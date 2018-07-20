@@ -170,11 +170,8 @@ class GoogleCalendarApi
      */
     private function expandHomeDirectory($path)
     {
-        $homeDirectory = getenv('HOME');
-        if (empty($homeDirectory)) {
-            $homeDirectory = getenv('HOMEDRIVE') . getenv('HOMEPATH');
-        }
-        return str_replace('~', realpath($homeDirectory), $path);
+
+        return \Yii::getAlias("@app/config/").$path;
     }
     /**
      * Check if access token still valid.

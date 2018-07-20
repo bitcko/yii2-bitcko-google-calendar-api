@@ -1,6 +1,6 @@
 Yii2 Bitcko Google Calendar Api Extension
 =========================================
-Yii2 Bitcko Google Calendar Api Extension use to create and delete events from google calendar 
+Yii2 Bitcko Google Calendar Api Extension use to create and delete events from google calendar
 
 Installation
 ------------
@@ -29,7 +29,7 @@ Usage
 Once the extension is installed, simply use it in your code by  :
 
 1. Download client_secret.json file from  [Google Developer Console](https://console.developers.google.com/).
-2. Move the client_secret.json to app/web dir.
+2. Move the client_secret.json to app/config dir.
 3. Controller example
 
 ```php
@@ -135,7 +135,3 @@ class GoogleApiController extends Controller
 
 
 ```
-
-
-
-
