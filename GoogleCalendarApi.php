@@ -39,7 +39,7 @@ class GoogleCalendarApi
         $this->client = new Google_Client();
         $this->client->setApplicationName('Yii Google Calendar API');
         $this->client->setScopes(Google_Service_Calendar::CALENDAR);
-        $this->client->setAuthConfig('client_secret.json');
+        $this->client->setAuthConfig(\Yii::getAlias("@app/config/").'client_secret.json');
         $this->client->setRedirectUri($redirectUrl);
         $this->client->setAccessType('offline');
         $cred = 'google_api_tokens/'.$this->username .'_credentials.json';
