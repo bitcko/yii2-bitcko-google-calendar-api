@@ -42,6 +42,7 @@ class GoogleCalendarApi
         $this->client->setAuthConfig(\Yii::getAlias("@app/config/").'client_secret.json');
         $this->client->setRedirectUri($redirectUrl);
         $this->client->setAccessType('offline');
+        $this->client->setApprovalPrompt('force');
         $cred = 'google_api_tokens/'.$this->username .'_credentials.json';
         // Load previously authorized credentials from a file.
         $this->credentialsPath = $this->expandHomeDirectory($cred);
@@ -71,9 +72,20 @@ class GoogleCalendarApi
         }
         $this->client->setAccessToken($accessToken);
         // Refresh the token if it's expired.
+        // New check for passing the refresh token down.
         if ($this->client->isAccessTokenExpired()) {
+            //Get the old access token
+            $oldAccessToken=$this->client->getAccessToken();
+            // Get new token with the refresh token
             $this->client->fetchAccessTokenWithRefreshToken($this->client->getRefreshToken());
-            file_put_contents($this->credentialsPath, json_encode($this->client->getAccessToken()));
+            // Get the new access
+            $accessToken=$this->client->getAccessToken();
+            // Push the old refresh token to the new token
+            $accessToken['refresh_token']=$oldAccessToken['refresh_token'];
+            // Put to the new file
+            file_put_contents($this->credentialsPath, json_encode($accessToken));
+            //$this->client->fetchAccessTokenWithRefreshToken($this->client->getRefreshToken());
+            //file_put_contents($this->credentialsPath, json_encode($this->client->getAccessToken()));
         }
 
     }
@@ -181,8 +193,18 @@ class GoogleCalendarApi
         $this->client->setAccessToken($accessToken);
         // Refresh the token if it's expired.
         if ($this->client->isAccessTokenExpired()) {
+            //Get the old access token
+            $oldAccessToken=$this->client->getAccessToken();
+            // Get new token with the refresh token
             $this->client->fetchAccessTokenWithRefreshToken($this->client->getRefreshToken());
-            file_put_contents($this->credentialsPath, json_encode($this->client->getAccessToken()));
+            // Get the new access
+            $accessToken=$this->client->getAccessToken();
+            // Push the old refresh token to the new token
+            $accessToken['refresh_token']=$oldAccessToken['refresh_token'];
+            // Put to the new file
+            file_put_contents($this->credentialsPath, json_encode($accessToken));
+            //$this->client->fetchAccessTokenWithRefreshToken($this->client->getRefreshToken());
+            //file_put_contents($this->credentialsPath, json_encode($this->client->getAccessToken()));
         }
     }
 
